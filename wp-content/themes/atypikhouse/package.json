@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "autoprefixer": "^10.4.0",
+    "laravel-mix": "^6.0.37",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19"
+  },
+  "scripts": {
+    "start": "npm run watch",
+    "dev": "npm run development",
+    "development": "npx mix",
+    "watch": "npx mix watch",
+    "watch-poll": "npx mix watch -- --watch-options-poll=1000",
+    "hot": "npx mix watch --hot",
+    "prod": "npm run production",
+    "production": "npx mix --production"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.7",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0"
+  }
+}
