@@ -22,6 +22,14 @@ if ( ! function_exists( 'atypikhouse_setup' ) ) :
 	 */
 	function atypikhouse_setup() {
 
+		/*
+		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on Fortesens, use a find and replace
+		 * to change 'fortesens' to the name of your theme in all the template files.
+		 */
+		load_theme_textdomain( 'fortesens', get_template_directory() . '/languages' );
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
@@ -33,6 +41,33 @@ if ( ! function_exists( 'atypikhouse_setup' ) ) :
 				'menu-footer' => esc_html__( 'Footer', 'atypikhouse' ),
 			)
 		);
+
+		// Add default posts and comments RSS feed links to head.
+		add_theme_support( 'automatic-feed-links' );
+
+		/*
+			* Let WordPress manage the document title.
+			* By adding theme support, we declare that this theme does not use a
+			* hard-coded <title> tag in the document head, and expect WordPress to
+			* provide it for us.
+			*/
+		add_theme_support( 'title-tag' );
+
+		/**
+		 * Add support for core custom logo.
+		 *
+		 * @link https://codex.wordpress.org/Theme_Logo
+		 */
+		add_theme_support(
+			'custom-logo',
+		);
+
+		/*
+		 * Enable support for Post Thumbnails on posts and pages.
+		 *
+		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		 */
+		add_theme_support( 'post-thumbnails' );
 	}
 endif;
 add_action( 'after_setup_theme', 'atypikhouse_setup' );
@@ -41,6 +76,8 @@ add_action( 'after_setup_theme', 'atypikhouse_setup' );
  * Enqueue scripts and styles.
  */
 function atypikhouse_scripts() {
+
+	wp_enqueue_style( 'gfont-lato', 'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,400;1,700;1,900&display=swap', array() );
 
 	wp_enqueue_style( 'atypikhouse-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'atypikhouse-style', 'rtl', 'replace' );
