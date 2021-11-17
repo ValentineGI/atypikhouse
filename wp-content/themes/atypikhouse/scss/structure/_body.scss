@@ -1,0 +1,48 @@
+html {
+    font-size: 16px;
+  }
+  
+  body {
+    font-family: $font__main;
+    background-color: $color__background-body;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  
+  @media (max-width: 767px) {
+    body {
+      font-size: 14px;
+    }
+  }
+  
+  p {
+    line-height: 30px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+  }
+  
+  a {
+    text-decoration: none;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+  
+    &:hover, &:active {
+      text-decoration: none;
+    }
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  ul {
+    padding-left: 0;
+    list-style: none;
+  }

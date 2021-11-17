@@ -1,0 +1,89 @@
+.site-footer {
+    background: $color_primary_red ;
+    color: #fff;
+    padding: 40px 0;
+  
+    a {
+      &:hover {
+        color: inherit;
+        @apply opacity-80;
+      }
+    }
+  
+    .footer-logo {
+      width: 300px;
+      max-width: 300px;
+      margin-bottom: 40px;
+    }
+  
+    .site-info {
+      font-size: 18px;
+  
+      p {
+        margin: 0;
+  
+        & + p {
+          margin: 0.75em 0 0;
+        }
+  
+        &:first-of-type {
+          font-size: 20px;
+  
+          a {
+            font-weight: 700;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  
+    .footer-links {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+  
+    .footer-newsletter {
+      text-align: center;
+  
+      p {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0 0 .5em;
+      }
+  
+      .btn {
+        border-radius: 5px;
+        border: 2px solid $color_primary_brown;
+        
+        display: block;
+        
+        height: 53px;
+        line-height: 49px;
+        
+        @apply py-0;
+        max-width: 100%;
+        text-align: center;
+        width: 280px;
+      }
+    }
+  }
+  
+.socials {
+  a {
+    background: transparent none center center no-repeat;
+    display: block;
+    width: 46px;
+    height: 46px;
+    overflow: hidden;
+    text-indent: -9999px;
+  }
+
+  li {
+    &.facebook a { background-image: url('img/icon-fb.svg'); }
+    &.instagram a { background-image: url('img/icon-instagram.svg'); }
+    &.twitter a { background-image: url('img/icon-twitter.svg'); }
+    &.youtube a { background-image: url('img/icon-yt.svg'); }
+    &.linkedin a { background-image: url('img/icon-linkedin.svg'); }
+  }
+}
