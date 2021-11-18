@@ -1020,10 +1020,6 @@ Header
 	.lg\:m-0{
 		margin: 0px;
 	}
-	.lg\:mx-0{
-		margin-left: 0px;
-		margin-right: 0px;
-	}
 	.lg\:block{
 		display: block;
 	}
