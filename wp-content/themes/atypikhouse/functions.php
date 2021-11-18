@@ -85,7 +85,7 @@ function atypikhouse_scripts() {
 	wp_style_add_data( 'atypikhouse-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'swiper-js', 'https://unpkg.com/swiper@7/swiper-bundle.min.js', array(), _S_VERSION );
-    
+
     // Déclarer le JS
 	wp_register_script('atypikhouse-script', get_template_directory_uri() . '/js/script.js', array(), '1.0', true);
 	wp_enqueue_script('atypikhouse-script');

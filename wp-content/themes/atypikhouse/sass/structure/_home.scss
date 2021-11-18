@@ -1,0 +1,68 @@
+.home-section {
+    @apply mt-20;
+  
+    h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 1em;
+      text-transform: uppercase;
+    }
+  
+    .wysiwyg-content {
+      font-size: 18px;
+  
+      strong, b {
+        font-weight: 500;
+      }
+  
+      ul {
+        @apply ml-5;
+      }
+    }
+  
+    &__cta {
+      @apply mt-20;
+    }
+  
+    .items-slider {
+      @apply mt-8;
+      // @apply -mb-8;
+    }
+  
+    &--presentation {
+      background: $color__background-body;
+      @apply pb-20;
+
+        .btn {
+            background-color: $color_primary_red;
+            color: #fff;
+            
+            display: block;
+            
+            height: 53px;
+            line-height: 49px;
+            
+            @apply py-0;
+            max-width: 100%;
+            text-align: center;
+            width: 280px;
+        }   
+  
+      &:before {
+        content: '';
+        $h: 220px;
+        background-size: auto $h;
+        background-position-x: 67%;
+    
+        display: block;
+        height: $h;
+        margin-top: $h;
+        margin-bottom: -$h * .75;
+    
+        transform: scale(-1) translateY(75%);
+      }
+    }
+    &--has-bg {
+      @apply py-8;
+    }
+  }

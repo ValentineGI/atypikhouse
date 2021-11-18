@@ -9,7 +9,7 @@ mix
 //.js('./src/js/main.js', './dist/js')
 // .extract(['jquery'])
 //.sass('./sass/style-editor.scss', './css')
-.sass('./scss/style.scss', '.')
+.sass('./sass/style.scss', '.')
 .options({
 	processCssUrls: false,
 	postCss: [

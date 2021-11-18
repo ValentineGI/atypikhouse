@@ -1,7 +1,7 @@
 <?php if( have_rows('slider') ): ?>
 <div class="reset-container">
 	<!-- Swiper -->
-	<div class="swiper mySwiper img-as-bg">
+	<div class="swiper mySwiper img-as-bg bg-blue-400">
 		<div class="swiper-wrapper">
 			<?php while( have_rows('slider') ): the_row(); 
 					$image = get_sub_field('image');
@@ -17,9 +17,7 @@
 							</div>
 						</div>
 						
-						<img class="slide-bg" src="<?php echo $image; ?>" alt="<?php echo $image; ?>" />
-						
-						
+						<img class="slide-bg" src="<?php echo $image; ?>" alt="<?php echo $image; ?>" />					
 
 					</div>
 			<?php endwhile; ?>

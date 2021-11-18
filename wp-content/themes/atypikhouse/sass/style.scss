@@ -13,23 +13,25 @@ License URI:
 Text Domain: 
 Tags: one-column, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images
 */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /*--------------------------------------------------------------
-Couleurs et Variables
+Couleurs et Typographies
 --------------------------------------------------------------*/
 @import "variables/colors";
 @import "variables/typography";
-
 
 /*--------------------------------------------------------------
 Structure
 --------------------------------------------------------------*/
 @import "structure/body";
 @import "structure/header";
-@import "structure/home";
 @import "structure/sliders";
+@import "structure/home";
 @import "structure/footer";
+
+/* Alignments
+--------------------------------------------- */
+@import "utilities/alignments";

@@ -32,6 +32,11 @@ module.exports = {
             // xl: '1280px',
             // '2xl': '1536px',
         },
+        fontWeight: {
+            normal: 400,
+            medium: 500,
+            bold: 700
+        },
         extend: {
             container: {
                 center: true,
@@ -43,5 +48,8 @@ module.exports = {
         extend: {
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/aspect-ratio'),
+        require('@tailwindcss/forms')
+    ],
 };
