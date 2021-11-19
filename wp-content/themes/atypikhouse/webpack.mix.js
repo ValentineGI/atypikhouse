@@ -23,8 +23,9 @@ mix
 	proxy: 'local.atypikhouse.fr',
 	files: [
 		// "./dist/css/*.css",
-		"./js/*.js",
+		"./**/*.js",
 		"./*.css",
+		"./sass/**/*.scss",
 		"./**/*.php",
 	]
 })

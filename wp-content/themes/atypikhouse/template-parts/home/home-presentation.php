@@ -22,18 +22,12 @@
 								<?php the_sub_field('contenu'); ?>
 								<?php if (get_sub_field('lien')) : ?>
 								<?php $link = get_sub_field('lien'); ?>
-								<a href="<?php echo $link['url']; ?>" target="_blank" class="absolute bottom-0 left-0 h-16 w-16 btn btn-secondary-reverse btn-lg"><?php echo $link['title']; ?></a>
+								<a href="<?php echo $link['url']; ?>" target="_blank" class="bottom-0 left-0 h-16 w-16 btn btn-secondary-reverse btn-lg"><?php echo $link['title']; ?></a>
 								<?php endif; ?>
 							</div>
 						</div>
 						
 					</div>
-					<div class="grid grid-cols-3">
-						<div>1</div>
-						<div>2</div>
-						<div>3</div>
-					</div>
-
 				</div>
 			</div>
 		</div>

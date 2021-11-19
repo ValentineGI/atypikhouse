@@ -47,20 +47,6 @@
             text-align: center;
             width: 280px;
         }   
-  
-      &:before {
-        content: '';
-        $h: 220px;
-        background-size: auto $h;
-        background-position-x: 67%;
-    
-        display: block;
-        height: $h;
-        margin-top: $h;
-        margin-bottom: -$h * .75;
-    
-        transform: scale(-1) translateY(75%);
-      }
     }
     &--has-bg {
       @apply py-8;
