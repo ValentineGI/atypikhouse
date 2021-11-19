@@ -55,7 +55,7 @@ class SeasonRepository extends AbstractPostRepository {
 		$postAtts = array(
 			'ID'			 => $entity->getId(),
 			'post_metas'	 => array(),
-			'post_status'	 => $entity->isActive() ? 'publish' : 'draft',
+			'post_status'	 => $entity->getId() ? get_post_status( $entity->getId() ) : 'publish',
 			'post_title'	 => $entity->getTitle(),
 			'post_content'	 => $entity->getDescription(),
 			'post_type'		 => MPHB()->postTypes()->season()->getPostType(),

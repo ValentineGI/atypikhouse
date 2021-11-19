@@ -4,18 +4,44 @@ namespace MPHB\Entities;
 
 class Room {
 
+	/**
+	 * @var int
+	 */
 	private $id;
 
 	/**
-	 *
-	 * @param int|\WP_POST $id
+	 * @var string
 	 */
-	public function __construct( $post ){
-		if ( is_a( $post, '\WP_Post' ) ) {
-			$this->id = $post->ID;
-		} else {
-			$this->id = absint( $post );
+	private $status;
+
+	/**
+	 * @var int
+	 */
+	private $room_type_id;
+
+	/**
+	 * @var string
+	 */
+	private $title;
+
+	/**
+	 * @var string
+	 */
+	private $description;
+
+	/**
+	 *
+	 * @param array $atts
+	 */
+	public function __construct( $atts ){
+		if ( isset( $atts['id'] ) ) {
+			$this->id = $atts['id'];
 		}
+
+		$this->status       = isset( $atts['status'] ) ? $atts['status'] : 'publish';
+		$this->room_type_id = isset( $atts['room_type_id'] ) ? $atts['room_type_id'] : 0;
+		$this->title        = isset( $atts['title'] ) ? $atts['title'] : '';
+		$this->description  = isset( $atts['description'] ) ? $atts['description'] : '';
 	}
 
 	/**
@@ -23,7 +49,7 @@ class Room {
 	 * @return int
 	 */
 	public function getRoomTypeId(){
-		return absint( get_post_meta( $this->id, 'mphb_room_type_id', true ) );
+		return $this->room_type_id;
 	}
 
 	/**
@@ -38,8 +64,24 @@ class Room {
 	 *
 	 * @return string
 	 */
+	public function getStatus(){
+		return $this->status;
+	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	public function getTitle(){
-		return get_the_title( $this->id );
+		return $this->title;
+	}
+
+	/**
+	 *
+	 * @return string
+	 */
+	public function getDescription(){
+		return $this->description;
 	}
 
 	/**
@@ -54,14 +96,25 @@ class Room {
 	/**
 	 * @return string[] [%syncId% => %calendarUrl%]
 	 */
-	public function getSyncUrls()
-    {
-		return MPHB()->getSyncUrlsRepository()->getUrls($this->id);
+	public function getSyncUrls(){
+		return MPHB()->getSyncUrlsRepository()->getUrls( $this->id );
 	}
 
-	public function setSyncUrls($urls)
-    {
-		MPHB()->getSyncUrlsRepository()->updateUrls($this->id, $urls);
+	/**
+	 * @param  string  $title
+	 */
+	public function setTitle( $title ){
+		$this->title = $title;
 	}
 
+	/**
+	 * @param  string  $description
+	 */
+	public function setDescription( $description ){
+		$this->description = $description;
+	}
+
+	public function setSyncUrls( $urls ){
+		MPHB()->getSyncUrlsRepository()->updateUrls( $this->id, $urls );
+	}
 }

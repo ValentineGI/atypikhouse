@@ -7,7 +7,7 @@ namespace MPHB\Entities;
  * @param int		$atts['ID']
  * @param string	$atts['post_title']
  * @param string	$atts['post_content']
- * @param string	$atts['post_excerpts']
+ * @param string	$atts['post_excerpt']
  * @param string	$atts['post_status']
  * @param int		$atts['post_parent']
  * @param string	$atts['post_date']
@@ -45,7 +45,7 @@ class WPPostData {
 	 *
 	 * @var string
 	 */
-	private $post_excerpts;
+	private $post_excerpt;
 
 	/**
 	 *
@@ -106,8 +106,8 @@ class WPPostData {
 		if ( isset( $this->post_content ) ) {
 			$postData['post_content'] = $this->post_content;
 		}
-		if ( isset( $this->post_excerpts ) ) {
-			$postData['post_excerpts'] = $this->post_excerpts;
+		if ( isset( $this->post_excerpt ) ) {
+			$postData['post_excerpt'] = $this->post_excerpt;
 		}
 		if ( isset( $this->post_title ) ) {
 			$postData['post_title'] = $this->post_title;

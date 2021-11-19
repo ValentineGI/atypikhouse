@@ -161,7 +161,6 @@ class RateRepository extends AbstractPostRepository {
 			'post_metas'	 => array(),
 			'post_status'	 => $entity->isActive() ? 'publish' : 'draft',
 			'post_title'	 => $entity->getTitle(),
-			'post_content'	 => $entity->getDescription(),
 			'post_type'		 => MPHB()->postTypes()->rate()->getPostType(),
 		);
 
@@ -174,7 +173,8 @@ class RateRepository extends AbstractPostRepository {
 		}, array_reverse( $entity->getSeasonPrices() ) );
 
 		$postAtts['post_metas'] = array(
-			'mphb_room_type_id'	 => $entity->getRoomTypeId(),
+			'mphb_description'   => $entity->getDescription(),
+			'mphb_room_type_id'  => $entity->getRoomTypeId(),
 			'mphb_season_prices' => $seasonPrices
 		);
 

@@ -127,9 +127,18 @@ class BookingEditCPTPage extends EditCPTPage {
 			<br/>
 			<strong><?php esc_html_e( 'Author:', 'motopress-hotel-booking' ); ?></strong>
 			<?php
-			if ( !empty( $log->user_id ) ) {
-				$userInfo	 = get_userdata( $log->user_id );
-				$authorName	 = sprintf( '<a target="_blank" href="%s">%s</a>', esc_url( $userInfo->user_url ), $userInfo->display_name );
+			if ( ! empty( $log->user_id ) ) {
+				$userInfo = get_userdata( $log->user_id );
+				$userName = $userInfo ? $userInfo->display_name : ( $log->comment_author ?: 'DELETED' );
+
+				$restApiKeyId = get_comment_meta( $log->comment_ID, 'api_key_id', true );
+				if ( $restApiKeyId ) {
+					$url        = admin_url( 'admin.php?page=mphb_settings&tab=advanced&edit-key=' . $restApiKeyId );
+					$authorName = sprintf( '<a target="_blank" href="%s">%s</a> by REST API', esc_url( $url ), $userName );
+				} else {
+					$url        = get_edit_user_link( $log->user_id );
+					$authorName = sprintf( '<a target="_blank" href="%s">%s</a>', esc_url( $url ), $userName );
+				}
 			} else {
 				$authorName = '<i>' . __( 'Auto', 'motopress-hotel-booking' ) . '</i>';
 			}

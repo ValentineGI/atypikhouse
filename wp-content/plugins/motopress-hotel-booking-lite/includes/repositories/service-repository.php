@@ -75,9 +75,12 @@ class ServiceRepository extends AbstractPostRepository {
 	public function mapEntityToPostData( $entity ){
 
 		$postAtts = array(
-			'ID'		 => $entity->getId(),
-			'post_metas' => array(),
-			'post_type'	 => MPHB()->postTypes()->service()->getPostType(),
+			'ID'           => $entity->getId(),
+			'post_metas'   => array(),
+			'post_status'  => $entity->getId() ? get_post_status( $entity->getId() ) : 'publish',
+			'post_type'    => MPHB()->postTypes()->service()->getPostType(),
+			'post_title'   => $entity->getTitle(),
+			'post_content' => $entity->getDescription(),
 		);
 
 		$postAtts['post_metas'] = array(

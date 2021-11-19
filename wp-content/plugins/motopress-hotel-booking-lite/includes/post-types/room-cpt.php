@@ -50,7 +50,6 @@ class RoomCPT extends EditableCPT {
 			'hierarchical'			 => false,
 			'show_in_menu'			 => MPHB()->postTypes()->roomType()->getMenuSlug(),
 			'supports'				 => array( 'title', 'excerpt', 'page-attributes' ),
-			'hierarchical'			 => false,
 			'register_meta_box_cb'	 => array( $this, 'registerMetaBoxes' ),
 		);
 

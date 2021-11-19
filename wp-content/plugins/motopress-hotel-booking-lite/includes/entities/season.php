@@ -57,12 +57,12 @@ class Season {
 	private $dates = array();
 
 	public function __construct( $atts ){
-		$this->id			 = (int) $atts['id'];
-		$this->title		 = $atts['title'];
-		$this->description	 = $atts['description'];
-		$this->startDate	 = $atts['start_date'];
-		$this->endDate		 = $atts['end_date'];
-		$this->days			 = array_map('\MPHB\Utils\CastUtils::toInt', $atts['days']);
+		$this->id          = $atts['id'];
+		$this->title       = $atts['title'];
+		$this->description = $atts['description'];
+		$this->startDate   = $atts['start_date'];
+		$this->endDate     = $atts['end_date'];
+		$this->days        = array_map( '\MPHB\Utils\CastUtils::toInt', $atts['days'] );
 		$this->setupDates();
 	}
 

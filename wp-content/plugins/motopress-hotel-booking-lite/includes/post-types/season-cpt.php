@@ -90,7 +90,6 @@ class SeasonCPT extends EditableCPT {
 			'hierarchical'			 => false,
 			'show_in_menu'			 => MPHB()->postTypes()->roomType()->getMenuSlug(),
 			'supports'				 => array( 'title' ),
-			'hierarchical'			 => false,
 			'register_meta_box_cb'	 => array( $this, 'registerMetaBoxes' ),
 		);
 

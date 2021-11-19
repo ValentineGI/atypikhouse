@@ -553,6 +553,8 @@ class Ajax {
 		
 		$priceHtml = mphb_format_price($total);
 
+		$priceHtml = mphb_format_price($total);
+
 		$responseData = array(
 			'newAmount'      => $total,
 			'priceHtml'      => $priceHtml,

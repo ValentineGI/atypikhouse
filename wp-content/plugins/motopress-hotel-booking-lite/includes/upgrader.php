@@ -89,6 +89,9 @@ class Upgrader {
 		),
 		'4.0.0' => array(
 			'addIndexesToSyncTablesSince_4_0_0'
+		),
+		'4.1.0' => array(
+			'createTableApiKeys'
 		)
 	);
 
@@ -616,6 +619,9 @@ class Upgrader {
 
 	public function addIndexesToSyncTablesSince_4_0_0()
 	{
+		// check is this is a full version of the plugin
+		if ( !class_exists( '\MPHB\iCal\Stats' ) ) return false;
+
 		global $wpdb;
 
         $statTable = $wpdb->prefix . \MPHB\iCal\Stats::TABLE_NAME;
@@ -631,6 +637,28 @@ class Upgrader {
 
 			$wpdb->query( "CREATE INDEX queue_id ON $logsTable (queue_id)" );
 		}
+
+		return false;
+	}
+
+	public function createTableApiKeys()
+	{
+		global $wpdb;
+
+		$wpdb->query( "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}mphb_api_keys ("
+		           . " key_id BIGINT UNSIGNED NOT NULL auto_increment,"
+		           . " user_id BIGINT UNSIGNED NOT NULL,"
+		           . " description varchar(200) NULL,"
+		           . " permissions varchar(10) NOT NULL,"
+		           . " consumer_key char(64) NOT NULL,"
+		           . " consumer_secret char(43) NOT NULL,"
+		           . " nonces longtext NULL,"
+		           . " truncated_key char(7) NOT NULL,"
+		           . " last_access datetime NULL default null,"
+		           . " PRIMARY KEY  (key_id),"
+		           . " KEY consumer_key (consumer_key),"
+		           . " KEY consumer_secret (consumer_secret)"
+		           . ") CHARSET=utf8 AUTO_INCREMENT=1" );
 
 		return false;
 	}

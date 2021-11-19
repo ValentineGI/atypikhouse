@@ -44,7 +44,16 @@ class RoomRepository extends AbstractPostRepository {
 
 	function mapPostToEntity( $post ){
 		$id = ( is_a( $post, '\WP_Post' ) ) ? $post->ID : $post;
-		return new Entities\Room( $id );
+
+		$atts = array(
+			'id'           => $id,
+			'status'       => get_post_status( $id ),
+			'title'        => get_the_title( $id ),
+			'description'  => get_the_excerpt( $id ),
+			'room_type_id' => get_post_meta( $id, 'mphb_room_type_id', true ),
+		);
+
+		return new Entities\Room( $atts );
 	}
 
 	/**
@@ -53,24 +62,16 @@ class RoomRepository extends AbstractPostRepository {
 	 * @return \MPHB\Entities\WPPostData
 	 */
 	public function mapEntityToPostData( $entity ){
-		/**
-		 * @todo Why here code from rate?
-		 */
+		$post_metas = array(
+			'mphb_room_type_id' => $entity->getRoomTypeId()
+		);
 		$postAtts = array(
 			'ID'			 => $entity->getId(),
-			'post_metas'	 => array(),
-			'post_status'	 => $entity->isActive() ? 'publish' : 'draft',
+			'post_metas'	 => $post_metas,
+			'post_status'	 => $entity->getStatus(),
 			'post_title'	 => $entity->getTitle(),
-			'post_content'	 => $entity->getDescription(),
+			'post_excerpt'	 => $entity->getDescription(),
 			'post_type'		 => MPHB()->postTypes()->room()->getPostType(),
-		);
-
-		$postAtts['post_metas'] = array(
-			'mphb_room_type_id'	 => $entity->getRoomTypeId(),
-			/**
-			 * @todo Serialize SeasonPrice objects?
-			 */
-			'mphb_season_prices' => array_reverse( $entity->getSeasonPrices() )
 		);
 
 		return new Entities\WPPostData( $postAtts );

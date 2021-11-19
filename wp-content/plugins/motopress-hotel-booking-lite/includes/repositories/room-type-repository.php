@@ -16,10 +16,12 @@ class RoomTypeRepository extends AbstractPostRepository {
 	public function mapEntityToPostData( $entity ){
 
 		$postAtts = array(
-			'ID'			 => $entity->getId(),
-//			'post_status'	 => $entity->getStatus(),
-			'post_title'	 => $entity->getTitle(),
-			'post_type'		 => MPHB()->postTypes()->rate()->getPostType(),
+			'ID'             => $entity->getId(),
+			'post_status'    => $entity->getStatus(),
+			'post_title'     => $entity->getTitle(),
+			'post_content'   => $entity->getDescription(),
+			'post_excerpt'   => $entity->getExcerpt(),
+			'post_type'      => MPHB()->postTypes()->roomType()->getPostType(),
 			'featured_image' => $entity->getFeaturedImageId(),
 		);
 
@@ -34,15 +36,22 @@ class RoomTypeRepository extends AbstractPostRepository {
 		);
 
 		$postAtts['taxonomies'] = array(
-			MPHB()->postTypes()->roomType()->getCategoryTaxName()	 => wp_list_pluck( $entity->getCategories(), 'term_id' ),
-			MPHB()->postTypes()->roomType()->getFacilityTaxName()	 => wp_list_pluck( $entity->getFacilities(), 'term_id' ),
+			MPHB()->postTypes()->roomType()->getTagTaxName()      => wp_list_pluck( $entity->getTags(), 'term_id' ),
+			MPHB()->postTypes()->roomType()->getCategoryTaxName() => wp_list_pluck( $entity->getCategories(), 'term_id' ),
+			MPHB()->postTypes()->roomType()->getFacilityTaxName() => wp_list_pluck( $entity->getFacilities(), 'term_id' ),
 		);
+
+		foreach( $entity->getAttributes() as $attributeName => $attributeTermIds ){
+			$attributeTaxonomy = mphb_attribute_taxonomy_name( $attributeName );
+			$postAtts['taxonomies'][$attributeTaxonomy] = $attributeTermIds;
+		}
 
 		return new Entities\WPPostData( $postAtts );
 	}
 
 	function mapPostToEntity( $post ){
-		$id			 = ( is_a( $post, '\WP_Post' ) ) ? $post->ID : $post;
+		$post        = ( is_a( $post, '\WP_Post' ) ) ? $post : get_post( $post );
+		$id			 = $post->ID;
 		$originalId	 = MPHB()->translation()->getOriginalId( $id, MPHB()->postTypes()->roomType()->getPostType() );
 
 		$adults	 = get_post_meta( $id, 'mphb_adults_capacity', true );
@@ -69,7 +78,9 @@ class RoomTypeRepository extends AbstractPostRepository {
 		$atts = array(
 			'id'			 => $id,
 			'original_id'	 => $originalId,
-			'title'			 => get_the_title( $id ),
+			'title'			 => $post->post_title,
+			'description'	 => $post->post_content,
+			'excerpt'	     => $post->post_excerpt,
 			'adults'		 => $adults,
 			'children'		 => $children,
             'total_capacity' => $total,
@@ -82,11 +93,31 @@ class RoomTypeRepository extends AbstractPostRepository {
 			'categories'	 => wp_get_post_terms( $id, MPHB()->postTypes()->roomType()->getCategoryTaxName() ),
 			'tags'			 => wp_get_post_terms( $id, MPHB()->postTypes()->roomType()->getTagTaxName() ),
 			'facilities'	 => wp_get_post_terms( $id, MPHB()->postTypes()->roomType()->getFacilityTaxName() ),
-			'attributes'	 => null, // Load on purpose only, see method Entities\RoomType::getAttributes()
+			'attributes'	 => $this->getAttributes( $id ),
 			'status'		 => get_post_status( $originalId )
 		);
 
 		return new Entities\RoomType( $atts );
+	}
+
+	protected function getAttributes( $roomTypeId ){
+		global $mphbAttributes;
+
+		$attributes = array();
+
+		foreach ( $mphbAttributes as $attribute ) {
+			$attributeName = $attribute['attributeName'];
+			$taxonomyName  = $attribute['taxonomyName'];
+
+			$terms = wp_get_post_terms( $roomTypeId, $taxonomyName );
+
+			if ( !is_wp_error( $terms ) && !empty( $terms ) ) {
+				$terms = array_combine( wp_list_pluck( $terms, 'term_id' ), wp_list_pluck( $terms, 'name' ) );
+				$attributes[$attributeName] = $terms;
+			}
+		}
+
+		return $attributes;
 	}
 
 	public function getIdTitleList( $atts = array() ){

@@ -78,7 +78,7 @@ class PaymentRepository extends AbstractPostRepository {
 	/**
 	 *
 	 * @param array $atts
-	 * @return Entities\Payment
+	 * @return Entities\Payment[]
 	 */
 	public function findAll( $atts = array() ){
 		return parent::findAll( $atts );

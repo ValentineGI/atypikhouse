@@ -154,7 +154,7 @@ class CPTPersistence {
 		if ( $postData->hasFeaturedImage() ) {
 			$featuredImage = $postData->getFeaturedImage();
 			if ( $featuredImage ) {
-				set_post_thumbnail( $postData->getID(), $postData['thumbnail'] );
+				set_post_thumbnail( $postData->getID(), $featuredImage );
 			} else {
 				delete_post_thumbnail( $postData->getID() );
 			}

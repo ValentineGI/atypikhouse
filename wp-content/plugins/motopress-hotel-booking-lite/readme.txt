@@ -4,7 +4,7 @@ Donate link: https://motopress.com/
 Requires at least: 4.7
 Tags: hotel booking, reservation, hotel, booking engine, booking, booking calendar, booking system, calendar, online booking, travel, airbnb, booking.com, homeaway
 Tested up to: 5.8
-Stable tag: 4.0.1
+Stable tag: 4.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,7 @@ The WordPress Hotel Booking plugin by MotoPress is the ultimate WordPress proper
 
 * [Plugin Demo](https://hbdemo.getmotopress.com/) with the Dashboard access.
 * [40+ Video Guides](https://www.youtube.com/playlist?list=PLbDImkyrISyKQccIsVDp98UXLIc1Yc3mn)
-* [Docs](https://motopress.com/files/motopress-hotel-booking-plugin-documentation.pdf) - step-by-step guides to set up and manage the plugin.
+* [Docs](https://motopress.com/documentation/wordpress/plugins/hotel-booking/) - step-by-step guides to set up and manage the plugin.
 * [Free Elementor WordPress hotel template](https://wordpress.org/themes/albatross/)
 
 Using this WP hotel booking reservation plugin, you can create a simple vacation rental listing as well as a powerful rental property booking website with all sorts of online and offline payments, automatic inventory control, taxes and fees info, flexible pricing rates, custom policies and more.
@@ -144,11 +144,13 @@ Hotel Booking Lite plugin is distributed under the terms of the GNU GPL.
 * CanJS, http://canjs.com/, Copyright 2016 Bitovi, MIT License.
 * SerializeJSON jQuery plugin, https://github.com/marioizquierdo/jquery.serializeJSON, Copyright (c) 2012, 2015 Mario Izquierdo, Dual licensed under the MIT and GPL licenses.
 * Datepick, http://keith-wood.name/datepick.html by Keith Wood Licensed under the MIT licence.
-* Magnific Popup, http://dimsemenov.com/plugins/magnific-popup/, Copyright 2016 Dmitry Semenov, MIT License.
 * jQuery FlexSlider, https://github.com/woocommerce/FlexSlider, Copyright 2012 WooThemes,  Contributing Author: Tyler Smith, GNU General Public License v2.0.
 
 
 == Changelog ==
+
+= 4.1.0, Nov 19 2021 =
+* New: Implemented REST API. This will give developers more extensive control over the plugin data, help integrate third-party services, and build new frontend experiences for Hotel Booking in WordPress.
 
 = 4.0.1, Nov 10 2021 =
 * Security - sanitization and escaping.
@@ -160,33 +162,6 @@ Hotel Booking Lite plugin is distributed under the terms of the GNU GPL.
 
 = 3.9.14, Oct 13 2021 =
 * Added support for Hotel Booking Multi-Currency addon.
-
-= 3.9.13, Sep 13 2021 =
-* Bug fix: fixed an issue with displaying information incompletely in the price breakdown table when using the Payment Request addon.
-* Bug fix: fixed an issue with the Payment Request addon when a guest was asked to pay a deposit payment amount instead of a balance payment one.
-
-= 3.9.12, Sep 2 2021 =
-* Bug fix: fixed an issue with displaying the balance sum a guest needs to pay when using the Payment Request addon.
-
-= 3.9.11, Aug 13 2021 =
-* Bug fix: fixed an issue with dates being available for selection while direct booking despite not check-in or not check-out booking rules are applied to certain accommodation types.
-* Bug fix: fixed an issue with defining the number of blocked accommodation types within certain booking rules.
-* Bug fix: fixed an issue with the maximum stay rule of specific accommodation type that was also applied to other accommodation types.
-* Bug fix: fixed an issue with 3D Secure for Stripe payments.
-
-= 3.9.10, Jul 28 2021 =
-* Bug fix: fixed an issue with payments via Stripe, iDEAL, Giropay, Sepa, and others.
-* Bug fix: fixed an issue with the missing billing fields for Stripe set as a default payment method.
-
-= 3.9.9, Jul 21 2021 =
-* Added the ability to enable a two-step booking cancelation process that requires users to confirm their booking cancelation request on the external page.
-* Added the ability to disable booking rules when adding bookings on the backend manually.
-* Improved the user experience with the calendar datepicker on mobile devices.
-* Bug fix: fixed an issue that didn't allow to make a booking on the date of reservation.
-* Bug fix: fixed an issue with a double payment via Stripe.
-
-= 3.9.8, Jun 22 2021 =
-* New feature: added the option to display information about tax and fee charges additionally to the base property rate on the frontend.
 
 --------
 

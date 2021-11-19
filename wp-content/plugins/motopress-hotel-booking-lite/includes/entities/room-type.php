@@ -27,6 +27,18 @@ class RoomType {
 
 	/**
 	 *
+	 * @var string
+	 */
+	private $description;
+
+	/**
+	 *
+	 * @var string
+	 */
+	private $excerpt;
+
+	/**
+	 *
 	 * @var int
 	 */
 	private $adults;
@@ -70,19 +82,19 @@ class RoomType {
 
 	/**
 	 *
-	 * @var \stdClass[]
+	 * @var \WP_Term[]
 	 */
 	private $categories;
 
 	/**
 	 *
-	 * @var \stdClass[]
+	 * @var \WP_Term[]
 	 */
 	private $tags;
 
 	/**
 	 *
-	 * @var \stdClass[]
+	 * @var \WP_Term[]
 	 */
 	private $facilities;
 
@@ -91,7 +103,7 @@ class RoomType {
 	 *
 	 * @see \MPHB\Repositories\RoomTypeRepository::mapPostToEntity()
 	 */
-	private $attributes = null;
+	private $attributes;
 
 	/**
 	 *
@@ -118,8 +130,9 @@ class RoomType {
 	public function __construct( $atts ){
 		$this->id			 = $atts['id'];
 		$this->originalId	 = $atts['original_id'];
-
 		$this->title		 = $atts['title'];
+		$this->description   = $atts['description'];
+		$this->excerpt		 = $atts['excerpt'];
 		$this->adults		 = $atts['adults'];
 		$this->children		 = $atts['children'];
         $this->totalCapacity = $atts['total_capacity'];
@@ -130,7 +143,7 @@ class RoomType {
 		$this->categories	 = $atts['categories'];
 		$this->tags			 = $atts['tags'];
 		$this->facilities	 = $atts['facilities'];
-		$this->attributes	 = $atts['attributes']; // Still null
+		$this->attributes	 = $atts['attributes'];
 		$this->imageId		 = $atts['image_id'];
 		$this->galleryIds	 = $atts['gallery_ids'];
 		$this->status		 = $atts['status'];
@@ -158,6 +171,22 @@ class RoomType {
 	 */
 	public function getTitle(){
 		return $this->title;
+	}
+
+	/**
+	 *
+	 * @return string
+	 */
+	public function getDescription(){
+		return $this->description;
+	}
+
+	/**
+	 *
+	 * @return string
+	 */
+	public function getExcerpt(){
+		return $this->excerpt;
 	}
 
 	/**
@@ -199,7 +228,7 @@ class RoomType {
 	/**
 	 * Retrieve room type categories terms objects
 	 *
-	 * @return \stdClass
+	 * @return \WP_Term[]
 	 */
 	public function getCategories(){
 		return $this->categories;
@@ -208,7 +237,7 @@ class RoomType {
 	/**
 	 * Retrieve room type tags terms objects
 	 *
-	 * @return \stdClass
+	 * @return \WP_Term[]
 	 */
 	public function getTags(){
 		return $this->tags;
@@ -216,7 +245,7 @@ class RoomType {
 
 	/**
 	 *
-	 * @return string
+	 * @return \WP_Term[]
 	 */
 	public function getFacilities(){
 		return $this->facilities;
@@ -227,26 +256,6 @@ class RoomType {
 	 * @return array [%Attribute name% => [%Term ID% => %Term title%]]
 	 */
 	public function getAttributes(){
-		global $mphbAttributes;
-
-		if ( !is_null( $this->attributes ) ) {
-			return $this->attributes;
-		}
-
-		$this->attributes = array();
-
-		foreach ( $mphbAttributes as $attribute ) {
-			$attributeName = $attribute['attributeName'];
-			$taxonomyName  = $attribute['taxonomyName'];
-
-			$terms = wp_get_post_terms( $this->id, $taxonomyName );
-
-			if ( !is_wp_error( $terms ) && !empty( $terms ) ) {
-				$terms = array_combine( wp_list_pluck( $terms, 'term_id' ), wp_list_pluck( $terms, 'name' ) );
-				$this->attributes[$attributeName] = $terms;
-			}
-		}
-
 		return $this->attributes;
 	}
 

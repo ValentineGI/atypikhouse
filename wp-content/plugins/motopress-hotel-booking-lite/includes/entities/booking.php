@@ -451,7 +451,9 @@ class Booking {
 	 * @param int $author
 	 */
 	public function addLog( $message, $author = null ){
-		$author = !is_null( $author ) ? $author : ( is_admin() ? get_current_user_id() : 0);
+		if ( is_null( $author ) ){
+			$author = is_admin() || ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ? get_current_user_id() : 0;
+		}
 
 		$commentdata = array(
 			'comment_post_ID'		 => $this->getId(),
@@ -467,6 +469,11 @@ class Booking {
 			'comment_author_email'	 => '',
 			'comment_type'			 => 'mphb_booking_log'
 		);
+
+		if ( ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ) {
+			$apiKeyId = MPHB()->getAdvanced()->getApi()->authentication->getCurrentAuthKeyId();
+			$commentdata['comment_meta'] = array( 'api_key_id' => $apiKeyId );
+		}
 
 		wp_insert_comment( $commentdata );
 	}
@@ -557,6 +564,14 @@ class Booking {
     public function getRoomIds(){
         return array_map( function ( $reservedRoom ) { return (int)$reservedRoom->getRoomId(); }, $this->reservedRooms );
     }
+
+	/**
+	 *
+	 * @param  Customer $customer
+	 */
+	public function setCustomer( Customer $customer ){
+		$this->customer = $customer;
+	}
 
 	/**
 	 *

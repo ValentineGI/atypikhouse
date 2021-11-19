@@ -5,6 +5,7 @@ namespace MPHB\Admin\MenuPages;
 use \MPHB\Admin\Fields;
 use \MPHB\Admin\Groups;
 use \MPHB\Admin\Tabs;
+use \MPHB\Advanced\Admin\Tab\SettingsTabAdvanced;
 use \MPHB\Utils\ThirdPartyPluginsUtils;
 
 class SettingsMenuPage extends AbstractMenuPage {
@@ -30,8 +31,14 @@ class SettingsMenuPage extends AbstractMenuPage {
 			$customerEmailsTab->getName()		 => $customerEmailsTab,
 			$globalEmailSettingsTab->getName()	 => $globalEmailSettingsTab,
 			$paymentsTab->getName()				 => $paymentsTab,
-			$extensionsTab->getName()			 => $extensionsTab
+			$extensionsTab->getName()			 => $extensionsTab,
 		);
+
+		$currentUser = wp_get_current_user();
+		if ( user_can( $currentUser, 'manage_options' ) ) {
+			$advancedTab                           = $this->_generateAdvancedTab();
+			$this->tabs[ $advancedTab->getName() ] = $advancedTab;
+		}
 
 		if ( MPHB()->settings()->license()->isEnabled() ) {
 			$licenseTab							 = $this->_generateLicenseTab();
@@ -757,6 +764,18 @@ class SettingsMenuPage extends AbstractMenuPage {
 
         return $tab;
     }
+
+	/**
+	 * @return SettingsTabAdvanced
+	 */
+	private function _generateAdvancedTab()
+	{
+		$tab = new SettingsTabAdvanced('advanced', __('Advanced', 'motopress-hotel-booking'), $this->name);
+
+		do_action( 'mphb_generate_settings_advanced', $tab );
+
+		return $tab;
+	}
 
 	/**
 	 *

@@ -271,6 +271,12 @@ class HotelBookingPlugin {
 
 	/**
 	 *
+	 * @var \MPHB\Advanced\Advanced
+	 */
+	private $advanced;
+
+	/**
+	 *
 	 * @var \MPHB\Payments\PaymentManager
 	 */
 	private $paymentManager;
@@ -293,6 +299,7 @@ class HotelBookingPlugin {
 	private $reservedRoomRepository;
 	private $couponRepository;
     private $syncUrlsRepository;
+    private $attributeRepository;
 
 	/**
 	 *
@@ -358,6 +365,8 @@ class HotelBookingPlugin {
 
 		$this->paymentManager	 = new \MPHB\Payments\PaymentManager();
 		$this->gatewayManager	 = new \MPHB\Payments\Gateways\GatewayManager();
+
+		$this->advanced = new \MPHB\Advanced\Advanced();
 
 		$this->postTypes = new \MPHB\CustomPostTypes();
 
@@ -427,6 +436,7 @@ class HotelBookingPlugin {
 		$this->reservedRoomRepository	 = new \MPHB\Repositories\ReservedRoomRepository( $this->reservedRoomPersistence );
 		$this->couponRepository			 = new \MPHB\Repositories\CouponRepository( $this->couponPersistence );
         $this->syncUrlsRepository        = new \MPHB\Repositories\SyncUrlsRepository();
+        $this->attributeRepository       = new \MPHB\Repositories\AttributeRepository( $this->attributesPersistence );
 	}
 
 	private function initBookingRules(){
@@ -941,6 +951,14 @@ class HotelBookingPlugin {
 
 	/**
 	 *
+	 * @return \MPHB\Advanced\Advanced
+	 */
+	public function getAdvanced(){
+		return $this->advanced;
+	}
+
+	/**
+	 *
 	 * @return \MPHB\CustomPostTypes
 	 */
 	public function postTypes(){
@@ -1250,10 +1268,26 @@ class HotelBookingPlugin {
 			. " KEY queue_id (queue_id)"
             . ") CHARSET=utf8 AUTO_INCREMENT=1";
 
+	    $apiKeys = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}mphb_api_keys ("
+	        . " key_id BIGINT UNSIGNED NOT NULL auto_increment,"
+	        . " user_id BIGINT UNSIGNED NOT NULL,"
+	        . " description varchar(200) NULL,"
+	        . " permissions varchar(10) NOT NULL,"
+	        . " consumer_key char(64) NOT NULL,"
+	        . " consumer_secret char(43) NOT NULL,"
+	        . " nonces longtext NULL,"
+	        . " truncated_key char(7) NOT NULL,"
+	        . " last_access datetime NULL default null,"
+	        . " PRIMARY KEY  (key_id),"
+	        . " KEY consumer_key (consumer_key),"
+	        . " KEY consumer_secret (consumer_secret)"
+	        . ") CHARSET=utf8 AUTO_INCREMENT=1";
+
         $wpdb->query($syncUrls);
         $wpdb->query($syncQueue);
         $wpdb->query($syncStats);
         $wpdb->query($syncLogs);
+        $wpdb->query($apiKeys);
 
     }
 
@@ -1476,6 +1510,13 @@ class HotelBookingPlugin {
 	public function getSyncUrlsRepository()
     {
 		return $this->syncUrlsRepository;
+	}
+
+	/**
+	 * @return \MPHB\Repositories\AttributeRepository
+	 */
+	public function getAttributeRepository(){
+		return $this->attributeRepository;
 	}
 
 	/**
