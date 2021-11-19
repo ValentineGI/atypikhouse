@@ -34,9 +34,9 @@
                     <div class="">
                       <div class="font-medium mb-6">
                         <h3><?php the_title(); ?></h3>
-                        <?php mphb_tmpl_the_room_type_featured_image(); ?>
+                        <?php echo do_shortcode('[mphb_room title="true" featured_image="true"]'); ?>
                         <div class=""><?php the_content(); ?></div>
-                        <?php mphb_tmpl_the_room_type_default_price(); ?>
+                        <?php //mphb_tmpl_the_room_type_default_price(); ?>
                       </div>
                       <div class="flex justify-start items-center pt-8">
                       </div>
