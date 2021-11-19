@@ -8,6 +8,7 @@
 
 			get_template_part('template-parts/home/home-slider');	
 			get_template_part('template-parts/home/home-presentation');
+			get_template_part('template-parts/home/home-hebergement');
             
 		endwhile; // End of the loop.
 		?>
