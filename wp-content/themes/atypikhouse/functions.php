@@ -25,10 +25,10 @@ if ( ! function_exists( 'atypikhouse_setup' ) ) :
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on Fortesens, use a find and replace
-		 * to change 'fortesens' to the name of your theme in all the template files.
+		 * If you're building a theme based on atypikhouse, use a find and replace
+		 * to change 'atypikhouse' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'fortesens', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'atypikhouse', get_template_directory() . '/languages' );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(

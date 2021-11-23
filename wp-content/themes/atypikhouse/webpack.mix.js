@@ -1,7 +1,5 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
-// const tailwindcss = require('@tailwindcss/jit');
-const autoprefixer = require('autoprefixer');
 
 // mix.autoload({ 'jquery': ['$', 'window.jQuery', 'jQuery'] })
 
@@ -14,9 +12,6 @@ mix
 	processCssUrls: false,
 	postCss: [
 		tailwindcss('./tailwind.config.js'),
-		autoprefixer({
-			grid: true
-		})
 	],
 })
 .browserSync({

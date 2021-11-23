@@ -12,7 +12,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<div class="container">
-		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'fortesens' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'atypikhouse' ); ?></a>
 		<div class="reset-container">
 			<header id="masthead" class="site-header pt-4 sm:pt-8 pb-4">
 				<div class="container">
@@ -23,7 +23,7 @@
 						</div><!-- .site-branding -->
                         <nav id="site-navigation" class="main-navigation sm:ml-14">
                             <div class="mobile:container">
-                                <button class="menu-toggle btn btn-primary-dark btn-sm mobile:mt-2" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'fortesens' ); ?></button>
+                                <button class="menu-toggle btn btn-primary-dark btn-sm mobile:mt-2" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'atypikhouse' ); ?></button>
                                 <?php
                                 wp_nav_menu(
                                     array(
