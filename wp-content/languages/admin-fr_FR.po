@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.8.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-20 22:02:44+0000\n"
+"PO-Revision-Date: 2021-11-21 21:43:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2125,7 +2125,7 @@ msgstr "<a href=\"https://wordpress.org/support/article/using-themes/#adding-new
 
 #: wp-admin/media-new.php:60
 msgid "<a href=\"https://wordpress.org/support/article/media-add-new-screen/\">Documentation on Uploading Media Files</a>"
-msgstr "<a href=\"https://wordpress.org/support/article/media-add-new-screen/\">Documentation sur le téléversement de médias (en anglais)</a>"
+msgstr "<a href=\"https://fr.wordpress.org/support/article/media-add-new-screen/\">Documentation sur le téléversement de médias</a>"
 
 #: wp-admin/users.php:75
 msgid "<a href=\"https://wordpress.org/support/article/roles-and-capabilities/\">Descriptions of Roles and Capabilities</a>"
@@ -2133,7 +2133,7 @@ msgstr "<a href=\"https://fr.wordpress.org/support/article/roles-and-capabilitie
 
 #: wp-admin/users.php:74
 msgid "<a href=\"https://wordpress.org/support/article/users-screen/\">Documentation on Managing Users</a>"
-msgstr "<a href=\"https://wordpress.org/support/article/users-screen/\">Documentation sur la gestion des comptes (en anglais)</a>"
+msgstr "<a href=\"https://fr.wordpress.org/support/article/users-screen/\">Documentation sur la gestion des comptes</a>"
 
 #: wp-admin/user-edit.php:327
 msgid "<a href=\"https://wordpress.org/support/article/keyboard-shortcuts/\" target=\"_blank\">More information</a>"
@@ -2145,7 +2145,7 @@ msgstr "<a href=\"https://fr.wordpress.org/support/article/users-your-profile-sc
 
 #: wp-admin/options-media.php:40
 msgid "<a href=\"https://wordpress.org/support/article/settings-media-screen/\">Documentation on Media Settings</a>"
-msgstr "<a href=\"https://wordpress.org/support/article/settings-media-screen/\">Documentation sur les réglages des médias (en anglais)</a>"
+msgstr "<a href=\"https://fr.wordpress.org/support/article/settings-media-screen/\">Documentation sur les réglages des médias</a>"
 
 #: wp-admin/widgets-form.php:71
 msgid "<a href=\"https://wordpress.org/support/article/appearance-widgets-screen/\">Documentation on Widgets</a>"
@@ -2178,7 +2178,7 @@ msgstr "<a href=\"https://fr.wordpress.org/support/article/pages-screen/\">Docum
 
 #: wp-admin/edit-form-advanced.php:336
 msgid "<a href=\"https://wordpress.org/support/article/pages-add-new-screen/\">Documentation on Adding New Pages</a>"
-msgstr "<a href=\"https://wordpress.org/support/article/pages-add-new-screen/\">Documentation sur la création de nouvelles pages (en anglais)</a>"
+msgstr "<a href=\"https://fr.wordpress.org/support/article/pages-add-new-screen/\">Documentation sur la création de nouvelles pages</a>"
 
 #: wp-admin/edit-form-advanced.php:319
 msgid "<a href=\"https://wordpress.org/support/article/wordpress-editor/\">Documentation on Writing and Editing Posts</a>"
@@ -2186,7 +2186,7 @@ msgstr "<a href=\"https://fr.wordpress.org/support/article/wordpress-editor/\">D
 
 #: wp-admin/upload.php:75 wp-admin/upload.php:254
 msgid "<a href=\"https://wordpress.org/support/article/media-library-screen/\">Documentation on Media Library</a>"
-msgstr "<a href=\"https://wordpress.org/support/article/media-library-screen/\">Documentation sur la médiathèque (en anglais)</a>"
+msgstr "<a href=\"https://fr.wordpress.org/support/article/media-library-screen/\">Documentation sur la médiathèque</a>"
 
 #: wp-admin/revision.php:156
 msgid "<a href=\"https://wordpress.org/support/article/revisions/\">Revisions Management</a>"
@@ -2194,7 +2194,7 @@ msgstr "<a href=\"https://fr.wordpress.org/support/article/revisions/\">Gestion 
 
 #: wp-admin/edit-form-advanced.php:355 wp-admin/media.php:96
 msgid "<a href=\"https://wordpress.org/support/article/edit-media/\">Documentation on Edit Media</a>"
-msgstr "<a href=\"https://wordpress.org/support/article/edit-media/\">Documentation sur la modification des médias (en anglais)</a>"
+msgstr "<a href=\"https://fr.wordpress.org/support/article/edit-media/\">Documentation sur la modification des médias</a>"
 
 #: wp-admin/edit-comments.php:196
 msgid "<a href=\"https://wordpress.org/support/article/keyboard-shortcuts/\">Documentation on Keyboard Shortcuts</a>"
@@ -2210,11 +2210,11 @@ msgstr "<a href=\"https://fr.wordpress.org/support/article/managing-plugins/\">D
 
 #: wp-admin/index.php:111
 msgid "<a href=\"https://wordpress.org/support/article/dashboard-screen/\">Documentation on Dashboard</a>"
-msgstr "<a href=\"https://wordpress.org/support/article/dashboard-screen/\">Documentation sur le Tableau de bord (en anglais)</a>"
+msgstr "<a href=\"https://fr.wordpress.org/support/article/dashboard-screen/\">Documentation sur le Tableau de bord</a>"
 
 #: wp-admin/user-new.php:294
 msgid "<a href=\"https://wordpress.org/support/article/users-add-new-screen/\">Documentation on Adding New Users</a>"
-msgstr "<a href=\"https://wordpress.org/support/article/users-add-new-screen/\">Documentation sur l’ajout de nouveaux comptes (en anglais)</a>"
+msgstr "<a href=\"https://fr.wordpress.org/support/article/users-add-new-screen/\">Documentation sur l’ajout de nouveaux comptes</a>"
 
 #. translators: %s: URL to Site Health Status page.
 #: wp-admin/site-health-info.php:43
@@ -2255,7 +2255,7 @@ msgstr "<a href=\"https://developer.wordpress.org/plugins/\">Documentation sur l
 
 #: wp-admin/plugin-editor.php:142
 msgid "<a href=\"https://wordpress.org/support/article/plugins-editor-screen/\">Documentation on Editing Plugins</a>"
-msgstr "<a href=\"https://wordpress.org/support/article/plugins-editor-screen/\">Documentation sur la modification d’extensions (en anglais)</a>"
+msgstr "<a href=\"https://fr.wordpress.org/support/article/plugins-editor-screen/\">Documentation sur la modification d’extensions</a>"
 
 #: wp-admin/theme-editor.php:54
 msgid "<a href=\"https://developer.wordpress.org/themes/basics/template-tags/\">Documentation on Template Tags</a>"
@@ -2668,7 +2668,7 @@ msgstr "En savoir plus sur les pré-requis de fonctionnement de WordPress."
 #. translators: Localized version of WordPress requirements if one exists.
 #: wp-admin/includes/class-wp-site-health.php:1180
 msgid "https://wordpress.org/about/requirements/"
-msgstr "https://wordpress.org/about/requirements/"
+msgstr "https://fr.wordpress.org/about/requirements/"
 
 #: wp-admin/includes/class-wp-site-health.php:1175
 msgid "The SQL server is a required piece of software for the database WordPress uses to store all your site&#8217;s content and settings."
@@ -8798,7 +8798,7 @@ msgstr "Les extensions étendent les fonctionnalités de WordPress, et en ajoute
 
 #. Plugin URI of the plugin
 msgid "http://wordpress.org/plugins/hello-dolly/"
-msgstr "https://wordpress.org/plugins/hello-dolly/"
+msgstr "https://fr.wordpress.org/plugins/hello-dolly/"
 
 #: wp-admin/includes/class-theme-upgrader.php:80
 msgid "The theme contains no files."

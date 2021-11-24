@@ -40,6 +40,11 @@ module.exports = {
                 padding: "1rem",
             },
         },
+        backgroundColor: theme => ({
+            ...theme('colors'),
+            'primary': '#AD5949',
+            'secondary': '#BA7B43',
+        })
     },
     variants: {
         extend: {

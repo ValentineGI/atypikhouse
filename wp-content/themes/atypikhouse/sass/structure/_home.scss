@@ -53,4 +53,13 @@
     &--has-bg {
       @apply py-8;
     }
+
+    &--actualites {
+      h3 {
+        font-size: 30px;
+      }
+      h4 {
+        color: #8C8C8C;
+      }
+    }
   }

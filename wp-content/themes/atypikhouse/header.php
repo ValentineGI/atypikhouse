@@ -21,7 +21,7 @@
 						<div class="site-branding">
 							<?php the_custom_logo(); ?>
 						</div><!-- .site-branding -->
-						<button class="text-gray inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler" data-target="#navigation">
+						<button class="text-gray inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggle" data-target="#navigation">
 							<i class="material-icons">menu</i>
 						</button>
 						<div class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto lg:pl-8" id="navigation" >
