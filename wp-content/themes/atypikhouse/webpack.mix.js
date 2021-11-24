@@ -16,6 +16,7 @@ mix
 })
 .browserSync({
 	proxy: 'local.atypikhouse.fr',
+
 	files: [
 		// "./dist/css/*.css",
 		"./**/*.js",
