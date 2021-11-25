@@ -44,7 +44,13 @@ module.exports = {
             ...theme('colors'),
             'primary': '#AD5949',
             'secondary': '#BA7B43',
-        })
+        }),
+        colors: {
+            primary: '#AD5949',
+            secondary: '#BA7B43',
+            primgrey : '#8C8C8C',
+            // ...
+        },
     },
     variants: {
         extend: {

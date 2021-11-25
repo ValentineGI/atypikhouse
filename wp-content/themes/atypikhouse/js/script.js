@@ -15,6 +15,6 @@
     });
   });
 
-  $('#primary-menu > li').addClass('lg:inline-flex lg:w-auto w-full px-3 py-2 rounded items-center justify-center hover:bg-primary hover:text-white');
+  $('#primary-menu > li').addClass('lg:inline-flex lg:w-auto w-full px-3 py-2 rounded items-center justify-center hover:bg-primary hover:text-white p-3');
 
 }( jQuery ) );

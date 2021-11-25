@@ -51,11 +51,8 @@ if ( ! function_exists( 'atypikhouse_setup' ) ) :
 		register_nav_menus(
 			array(
 				'menu-header' => esc_html__( 'Header', 'atypikhouse' ),
-			)
-		);
-		register_nav_menus(
-			array(
 				'menu-footer' => esc_html__( 'Footer', 'atypikhouse' ),
+				'menu-copyright' => esc_html__('Copyright', 'atypikhouse'),
 			)
 		);
 

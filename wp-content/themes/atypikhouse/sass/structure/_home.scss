@@ -55,11 +55,18 @@
     }
 
     &--actualites {
+      background-color: #F7F7F7;
       h3 {
         font-size: 30px;
       }
       h4 {
         color: #8C8C8C;
       }
+      .post-categories {
+        color: #8C8C8C;
+      }
+    }
+    &--hebergement {
+      background-color: #F7F7F7;
     }
   }

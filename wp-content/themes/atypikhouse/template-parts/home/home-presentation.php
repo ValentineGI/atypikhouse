@@ -2,13 +2,12 @@
 	<?php while( have_rows('a_propos') ): the_row(); 
 		$image1 = get_sub_field('image_1plan');
 		$image2 = get_sub_field('image_2plan');
-		?>
+	?>
 
-		<div class="reset-container">
-			<div class="home-section home-section--presentation mb-8">
+	<div class="reset-container">
+		<div class="home-section home-section--presentation mb-8">
 			<div class="container">
-				<!-- probleme ici avec les cols-12 -->
-				<div class="grid lg:grid-cols-12 gap-4">
+				<div class="grid lg:grid-cols-12 gap-16">
 					<div class="grid grid-cols-12 col-span-7 md:items-center w-full max-w-screen-sm md:max-w-screen-md mx-auto px-4">
 						<div class="col-span-12 md:col-span-auto md:col-start-1 md:col-end-9 md:row-start-1 md:row-end-1">
 							<img class="" src="<?php echo $image2; ?>" alt="<?php echo $image2; ?>" />
@@ -30,6 +29,6 @@
 				</div>
 			</div>
 		</div>
-
+	</div>							
 	<?php endwhile; ?>
 <?php endif; ?>
