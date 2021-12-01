@@ -18,11 +18,18 @@ html {
   
   p {
     line-height: 30px;
+    padding: 10px 0px;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;
     font-weight: 600;
+    font-size: 40px;
+  }
+  h1, h2 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 1em;
   }
   
   a {

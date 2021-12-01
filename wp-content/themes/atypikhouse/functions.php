@@ -171,6 +171,23 @@ function add_additional_class_on_li($classes, $item, $args) {
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
 
 /**
+ * Système de pagination
+ */
+
+function atypikhouse_posts_pagination()
+{
+	$svg = '<svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+			<path d="M25.7071 7.29289C26.0976 7.68342 26.0976 8.31658 25.7071 8.70711L19.3431 15.0711C18.9526 15.4616 18.3195 15.4616 17.9289 15.0711C17.5384 14.6805 17.5384 14.0474 17.9289 13.6569L23.5858 8L17.9289 2.34315C17.5384 1.95262 17.5384 1.31946 17.9289 0.928932C18.3195 0.538408 18.9526 0.538408 19.3431 0.928932L25.7071 7.29289ZM25 9H0V7H25V9Z"/>
+			</svg>';
+
+	the_posts_pagination(array(
+		'mid_size' => 1,
+		'prev_text' => $svg . esc_html__('Previous', 'atypikhouse'),
+		'next_text' => esc_attr__('Next', 'atypikhouse') . $svg
+	));
+}
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';

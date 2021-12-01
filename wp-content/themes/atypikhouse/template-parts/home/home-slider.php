@@ -1,5 +1,5 @@
 <?php if( have_rows('slider') ): ?>
-<div class="reset-container">
+<div class="reset-container relative z-10">
 	<div class="container">
 		<div class="swiper mySwiper img-as-bg bg-blue-400">
 			<div class="swiper-wrapper">
@@ -12,7 +12,7 @@
 									<div>
 										<h2 class="slide-content__title"><?php the_sub_field('texte'); ?></h2>
 									</div>
-									<div class="w-full h-60 flex items-end">
+									<div class="w-full h-32 flex items-end">
 										<?php if (get_sub_field('lien')) : ?>
 										<?php $link = get_sub_field('lien'); ?>
 										<a href="<?php echo $link['url']; ?>" target="_blank" class="h-16 w-16 btn btn-secondary-reverse btn-lg"><?php echo $link['title']; ?></a>

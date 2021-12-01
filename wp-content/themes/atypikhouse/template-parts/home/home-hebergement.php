@@ -4,7 +4,7 @@
 		?>
 		<?php if ($elements): ?>
 			<div class="reset-container">
-				<div class="home-section home-section--hebergement mb-8 pt-24">
+				<div class="home-section home-section--hebergement my-8 pt-24">
 					<div class="container">
 						<div class="grid lg:grid-cols-12 gap-4">	
 							<div class="col-span-4 grid-row">
