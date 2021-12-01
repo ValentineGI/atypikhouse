@@ -20,7 +20,7 @@
 						<div class="site-branding">
 							<?php the_custom_logo(); ?>
 						</div><!-- .site-branding -->
-						<button class="text-gray inline-flex p-3 hover:bg-primary rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler" data-target="#navigation">
+						<button class="text-gray inline-flex p-3 hover:bg-primary hover:text-white rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler" data-target="#navigation">
 							<i class="material-icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></i>
 						</button>
 						<div class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto lg:pl-8" id="navigation" >

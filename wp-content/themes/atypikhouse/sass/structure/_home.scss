@@ -70,3 +70,25 @@
       background-color: #F7F7F7;
     }
   }
+
+.widget-recherche {
+  .mphb_sc_search-wrapper {
+    &:last-child {
+      margin-bottom: 0;
+     
+    }
+    p {
+      width: 100%;
+      margin: 0;
+      padding: 1.25em 0 0;
+    }
+  } 
+  .mphb_sc_search-form {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+  .mphb-required-fields-tip {
+    display: none;
+  }
+}

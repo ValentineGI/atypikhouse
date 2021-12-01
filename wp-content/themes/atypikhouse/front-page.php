@@ -7,6 +7,7 @@
 			the_post();
 
 			get_template_part('template-parts/home/home-slider');	
+			get_template_part('template-parts/home/home-recherche');
 			get_template_part('template-parts/home/home-presentation');
 			get_template_part('template-parts/home/home-hebergement');
 			get_template_part('template-parts/home/home-actualite');
