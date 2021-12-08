@@ -1,1 +1,0 @@
-ALTER TABLE `#__vikbooking_invoices` ADD COLUMN `rawcont` text DEFAULT NULL;
